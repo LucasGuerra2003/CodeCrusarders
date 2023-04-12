@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.min-height {
+    min-height: 75%;
+}
+
+.start {
+    justify-content: flex-start;
+}
+
+.column {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-wrap: wrap !important;
+    }
+}

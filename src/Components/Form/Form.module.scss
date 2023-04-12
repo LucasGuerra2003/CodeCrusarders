@@ -1,0 +1,141 @@
+section {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px 0 50px 0;
+
+    .formTitleContainer {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        background-attachment: blue;
+
+        h1 {
+            font-size: 20pt;
+            font-weight: 500;
+        }
+    }
+
+    form {
+        position: relative;
+        display: flex;
+        width: 400px;
+        height: fit-content;
+        background-color: #222;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 40px;
+        padding: 4em;
+        border-radius: 10px;
+        margin: auto;
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+        .formContainerInput {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            label {
+                color: #fff;
+                font-weight: 400;
+            }
+
+            input {
+                border: none;
+                border-bottom: 1px solid #fff;
+                background-color: transparent;
+                outline: none;
+                color: #fff;
+                padding: 10px;
+            }
+        }
+
+        .formContainerButton {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 10px;
+
+            button {
+                position: relative;
+                display: flex;
+                width: 100%;
+                height: fit-content;
+                color: #222;
+                font-weight: 500;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+                background-color: #fff;
+                cursor: pointer;
+                transition: all .1s ease-in-out;
+
+                &:hover{
+                    transition: all .1s ease-in-out;
+                    opacity: .7;
+                }
+
+                &.alredyHas {
+                    background-color: transparent;
+                    border: 2px solid #fff;
+                    color: #fff;
+                }
+            }
+        }
+
+        .formContainerLegends{
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            p{
+                color: #fff;
+                padding: 0;
+                margin: 0;
+                opacity: .6;
+            }
+        }
+    }
+
+    .infoContainer{
+        position: relative;
+        display: flex;
+        width: fit-content;
+        background-color: #222;
+        border-radius: 10px;
+        padding: 2em;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 40px;
+
+        h1{
+            color: #fff;
+        }
+
+        p{
+            color: #fff;
+        }
+
+        button{
+            border: 2px solid red;
+            color: red;
+            background-color: transparent;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    }
+}
