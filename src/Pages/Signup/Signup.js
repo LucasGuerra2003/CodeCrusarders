@@ -1,10 +1,10 @@
-//import styles from './Signup.module.scss'
-import Form from '../../Components/Form/Form'
+import styles from './Signup.module.scss'
+import SignupForm from '../../Components/Forms/Signup/SignupForm'
 
 function Signup() {
     return (
-        <section>
-            <Form />
+        <section className={styles.section}>
+            <SignupForm />
         </section>
     )
 }

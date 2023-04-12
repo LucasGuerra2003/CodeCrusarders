@@ -1,0 +1,99 @@
+.sectionRedirect {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0,151,178);
+    background: linear-gradient(90deg, rgba(0,151,178,1) 10%, rgba(126,217,87,1) 100%); 
+
+    .baseContainer {
+        position: relative;
+        display: flex;
+        width: 50%;
+        height: 100%;
+        background: rgb(27,26,26);
+        background: radial-gradient(circle, rgba(27,26,26,1) 0%, rgba(18,17,17,1) 35%, rgba(23,21,21,1) 100%); 
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+        .contentContainer {
+            align-self: self-end;
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            h2 {
+                color: #fff;
+                font-size: 30pt;
+            }
+
+            button {
+                position: relative;
+                display: flex;
+                width: 300px;
+                height: fit-content;
+                border-radius: 25px;
+                border: none;
+                font-size: 15pt;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 50px;
+                cursor: pointer;
+                max-width: 100%;
+
+                &:hover{
+                    opacity: .7;
+                }
+
+                &.buttonSignup {
+                    background-color: #fff;
+                }
+
+                &.buttonSignin {
+                    background-color: #7ed957 !important;
+                    color: #fff;
+                }
+            }
+        }
+
+        .logoContainer{
+            position: relative;
+            display: flex;
+            width: fit-content;
+            height: fit-content;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .logo{
+                width: 50px;
+                object-fit: contain;
+            }
+
+            p{
+                color: #fff;
+
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .baseContainer{
+        width: 100% !important;
+        height: 100% !important;
+        gap: 50px;
+    }
+}

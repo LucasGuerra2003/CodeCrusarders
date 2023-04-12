@@ -1,11 +1,11 @@
 import styles from './Signin.module.scss'
+import SigninForm from '../../Components/Forms/Signin/SigninForm'
 
 function Signin() {
     return (
         <>
-            <section>
-                <Form />
-                <h1>Usuário logado:</h1>
+            <section className={styles.section}>
+                <SigninForm />
             </section>
         </>
     )
