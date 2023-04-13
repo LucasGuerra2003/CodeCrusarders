@@ -1,5 +1,6 @@
 import SectionRedirect from "../../Components/SectionRedirect/SectionRedirect"
 
+
 function MainPage() {
     return (
         <>
