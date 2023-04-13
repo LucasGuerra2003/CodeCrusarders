@@ -6,6 +6,29 @@
     flex-direction: column;
     flex-wrap: wrap;
 
+    .loadingScreen {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background: rgb(27, 26, 26);
+        background: radial-gradient(circle, rgb(27, 26, 26) 0%, rgb(18, 17, 17) 35%, rgb(23, 21, 21) 100%);
+        justify-content: center;
+        align-items: center;
+
+        .container {
+            position: relative;
+            display: flex;
+            width: fit-content;
+            height: fit-content;
+            justify-content: center;
+            align-items: center;
+            font-size: 20pt;
+            color: #fff;
+        }
+    }
+
     .divContainer {
         position: relative;
         display: flex;
@@ -29,13 +52,173 @@
             box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
         }
 
-        .logoBackground{
+        .logoBackground {
             position: absolute;
             display: flex;
             left: 0;
             transform: translateX(-50%);
             opacity: .2;
             z-index: -1;
+        }
+
+        .formContainer {
+            position: relative;
+            display: flex;
+            width: 80%;
+            height: 80%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .titleContainer {
+                position: relative;
+                display: flex;
+                width: 70%;
+                height: fit-content;
+                margin: 0 0 20px 0;
+
+                h2 {
+                    color: #fff;
+                    font-size: 30pt;
+                    margin: 0;
+                    padding: 0;
+                    letter-spacing: 1px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+            }
+
+            form {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 70%;
+
+                .inputContainer {
+                    position: relative;
+                    display: flex;
+                    width: 100%;
+                    height: fit-content;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    label {
+                        color: #fff;
+                        font-size: 12pt;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    }
+
+                    input {
+                        border: none;
+                        background-color: #F2F2F2;
+                        border-radius: 5px;
+                        font-size: 10pt;
+                        padding: 10px;
+                    }
+                }
+
+                .buttonContainer {
+                    position: relative;
+                    display: flex;
+                    width: fit-content;
+                    height: fit-content;
+                    gap: 10px;
+
+                    button {
+                        position: relative;
+                        display: flex;
+                        width: fit-content;
+                        height: fit-content;
+                        border: none;
+                        background-color: #fff;
+                        border-radius: 10px;
+                        padding: 10px 20px;
+                        font-size: 12pt;
+                        cursor: pointer;
+                        align-items: center;
+
+                        &.register {
+                            background-color: #7ed957;
+                            color: #fff;
+                            gap: 5px;
+                        }
+
+                        &.back {
+                            background-color: transparent;
+                            border: 2px solid #fff;
+                            color: #fff;
+                        }
+
+                        &:hover {
+                            opacity: .7;
+                        }
+                    }
+                }
+
+                .errorContainer {
+                    position: relative;
+                    display: flex;
+                    width: fit-content;
+                    height: fit-content;
+                    margin: 0;
+                    padding: 0;
+                    align-items: center;
+
+                    p {
+                        color: #ff9999;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        margin: 0;
+                    }
+                }
+
+                .legendContainer {
+                    position: relative;
+                    display: flex;
+                    width: fit-content;
+                    height: fit-content;
+                    margin-bottom: 10px;
+
+                    p {
+                        color: #948d8d;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 70%;
+    }
+
+    .section {
+        min-height: 100vh;
+        height: fit-content !important;
+        flex-direction: column-reverse;
+
+        .divContainer {
+            width: 100%;
+
+            &:nth-child(2) {
+                margin-top: 200px;
+                
+                h1 {
+                    font-size: 30pt !important;
+                }
+            }
+
+            &:nth-child(1) {
+                border-radius: 0px 0 0 0px !important;
+                padding: 2em 0;
+            }
         }
     }
 }

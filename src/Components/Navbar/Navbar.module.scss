@@ -1,0 +1,57 @@
+.navbar {
+    position: relative;
+    display: flex;
+    width: -moz-available;
+    height: 80px;
+    background-color: #222;
+    border-radius: 10px;
+    margin: 20px;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+
+    div {
+        position: relative;
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+
+        &.logout {
+            button {
+                background-color: transparent;
+                color: red;
+                border: 2px solid red;
+                padding: 10px 20px;
+                border-radius: 10px;
+                cursor: pointer;
+
+                &:hover{
+                    opacity: .7;
+                }
+            }
+        }
+
+        &.logo{
+            position: relative;
+            display: flex;
+            width: fit-content;
+            height: fit-content;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            gap: 5px;
+            margin: auto;
+
+            img{
+                width: 50px;
+                object-fit: contain;
+            }
+
+            p{
+                color: #fff;
+            }
+        }
+    }
+}
