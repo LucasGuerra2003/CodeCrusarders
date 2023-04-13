@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal';
-import { createBrowserHistory } from 'history';
 import { Navigate } from 'react-router-dom';
 import Carregando from '../../Layout/Carregando'
 
@@ -11,6 +10,7 @@ import {
     onAuthStateChanged,
     signOut,
     signInWithPopup,
+    sendPasswordResetEmail
 } from 'firebase/auth'
 import { auth, googleProvider, facebookProvider, microsoftProvider } from '../../../Services/firebase-config'
 
@@ -24,6 +24,7 @@ import { AiOutlineMail, AiOutlineLogin } from 'react-icons/ai';
 import { RiLockPasswordLine, RiVipDiamondLine } from 'react-icons/ri';
 import { BiMessageSquareError } from 'react-icons/bi';
 import { FaGoogle, FaFacebookF, FaWindows } from 'react-icons/fa';
+import { BsQuestionLg } from 'react-icons/bs';
 
 function Signin() {
     // UseState
@@ -49,6 +50,10 @@ function Signin() {
     // Loading state
     const [isLoading, setIsLoading] = useState(false);
 
+    // Redirect
+    const [goToHome, setGoToHome] = useState(false)
+
+    // Set User
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -65,6 +70,10 @@ function Signin() {
         signInWithPopup(auth, googleProvider)
             .then((data) => {
                 setGoogleValue(data.user.email)
+                localStorage.setItem("email", data.user.email);
+                setIsLoading(false);
+                setMensagemErro("Logado");
+                redirect()
             })
             .catch((error) => {
                 setIsModalOpen(false)
@@ -72,7 +81,7 @@ function Signin() {
             });
     }
 
-    // Google 
+    // Facebook 
     useEffect(() => {
         setFacebookValue(localStorage.getItem('email'))
     })
@@ -82,6 +91,7 @@ function Signin() {
         signInWithPopup(auth, facebookProvider)
             .then((data) => {
                 setFacebookValue(data.user.email)
+                redirect()
             })
             .catch((error) => {
                 setIsModalOpen(false)
@@ -99,6 +109,7 @@ function Signin() {
             .then((result) => {
                 const email = result.user.email;
                 setMicrosoftValue(email);
+                redirect()
             })
             .catch((error) => {
                 setIsModalOpen(false)
@@ -127,9 +138,10 @@ function Signin() {
             localStorage.setItem("email", user.email);
             setIsLoading(false);
             setMensagemErro("Logado");
+            redirect()
         } catch (error) {
             setIsLoading(false);
-            return setMensagemErro("Não foi possível acessar, tente novamente mais tarde.");
+            return setMensagemErro("Acesso negado!");
         }
     }
 
@@ -148,6 +160,28 @@ function Signin() {
     const handleModalClose = () => {
         setIsModalOpen(false);
     };
+
+    // Recover account
+    function resetPassword(e) {
+        e.preventDefault();
+
+        if (!loginEmail) {
+            return setMensagemErro("Por favor, preencha o campo e-mail.");
+        }
+
+        return sendPasswordResetEmail(auth, loginEmail).then((a) => {
+            setMensagemErro("Email de redefinição de senha enviado.");
+        })
+    }
+
+    // Redirect
+    const redirect = () => {
+        setGoToHome(true)
+    }
+
+    if (goToHome) {
+        return <Navigate to="/home" />;
+    }
 
     return (
         <section className={styles.section}>
@@ -178,9 +212,12 @@ function Signin() {
                             <button onClick={handleLoginClick}>
                                 <AiOutlineLogin />Login alternativo
                             </button>
+                            <button onClick={resetPassword}>
+                                <BsQuestionLg />Esqueci a senha
+                            </button>
                         </div>
                         <Modal isOpen={isModalOpen} ariaHideApp={false} onRequestClose={handleModalClose} className={styles.modal}>
-                            <h2>Login alternativo</h2>
+                            <h2><AiOutlineLogin />Login alternativo</h2>
                             <button className={styles.btngoogle} onClick={loginGoogleClick}>
                                 <FaGoogle />
                                 Login com Google

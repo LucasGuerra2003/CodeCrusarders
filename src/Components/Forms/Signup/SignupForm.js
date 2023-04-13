@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Carregando from '../../Layout/Carregando'
+import { Navigate } from 'react-router-dom';
 
 // Firebase
 import {
     createUserWithEmailAndPassword,
     onAuthStateChanged,
-    signOut,
 } from 'firebase/auth'
 import { auth } from '../../../Services/firebase-config'
 
@@ -18,7 +18,6 @@ import logo from '../../../img/diamondDark.png'
 import { CgProfile } from 'react-icons/cg';
 import { AiOutlineMail } from 'react-icons/ai';
 import { RiLockPasswordLine, RiVipDiamondLine } from 'react-icons/ri';
-import { MdOutlineDriveFileRenameOutline } from 'react-icons/md';
 import { BiMessageSquareError } from 'react-icons/bi';
 
 function SignupForm() {
@@ -36,6 +35,9 @@ function SignupForm() {
 
     // Loading state
     const [isLoading, setIsLoading] = useState(false);
+
+    // Redirect
+    const [goToHome, setGoToHome] = useState(false)
 
     // Set active user
     useEffect(() => {
@@ -79,17 +81,24 @@ function SignupForm() {
         setIsLoading(true);
 
         try {
-            const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
+            const userCredential = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
+            const user = userCredential.user;
+            localStorage.setItem("email", user.email);
             setIsLoading(false);
+            redirect()
         } catch (error) {
             setIsLoading(false);
             return setMensagemErro("Não foi possível registrar, tente novamente mais tarde.");
         }
     }
 
-    // Logout function
-    const logout = async () => {
-        await signOut(auth)
+    // Redirect
+    const redirect = () => {
+        setGoToHome(true)
+    }
+
+    if(goToHome){
+        return <Navigate to="/home" />;
     }
 
     return (

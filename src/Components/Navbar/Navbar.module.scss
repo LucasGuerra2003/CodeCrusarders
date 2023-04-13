@@ -6,16 +6,48 @@
     background-color: #222;
     border-radius: 10px;
     margin: 20px;
-    margin-bottom: 0;
+    margin-bottom: auto;
     justify-content: center;
     align-items: center;
     padding: 0 10px;
+
+    &.navbarNoLogin {
+        justify-content: space-between;
+
+        .logo {
+            margin: 0;
+        }
+    }
 
     div {
         position: relative;
         display: flex;
         width: fit-content;
         height: fit-content;
+
+        &.default {
+            gap: 10px;
+
+            a:nth-child(1) {
+                button {
+                    color: #7ed957;
+                    border-color: #7ed957;
+                }
+            }
+
+            button {
+                background-color: transparent;
+                color: #fff;
+                border: 2px solid #fff;
+                padding: 10px 20px;
+                border-radius: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: .7;
+                }
+            }
+        }
 
         &.logout {
             button {
@@ -26,13 +58,13 @@
                 border-radius: 10px;
                 cursor: pointer;
 
-                &:hover{
+                &:hover {
                     opacity: .7;
                 }
             }
         }
 
-        &.logo{
+        &.logo {
             position: relative;
             display: flex;
             width: fit-content;
@@ -44,12 +76,12 @@
             gap: 5px;
             margin: auto;
 
-            img{
+            img {
                 width: 50px;
                 object-fit: contain;
             }
 
-            p{
+            p {
                 color: #fff;
             }
         }

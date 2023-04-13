@@ -9,7 +9,7 @@
 .Carregando{
     width: 50px;   
 }
-p{
+.Carregando_container > p{
     color: #fff;
     font-size: 15pt;
     margin-right: 10px;

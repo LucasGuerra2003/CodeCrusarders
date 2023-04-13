@@ -12,6 +12,9 @@
     gap: 10px;
 
     h2 {
+        display: flex;
+        align-items: center;
+        gap: 5px;
         font-weight: 400 !important;
     }
 
@@ -247,6 +250,10 @@
                         align-items: center;
                         gap: 5px;
                         margin: 0;
+
+                        svg{
+                            min-width: 16px;
+                        }
                     }
                 }
 
@@ -267,6 +274,9 @@
                     position: relative;
                     display: flex;
                     width: fit-content;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    gap: 5px;
 
                     button {
                         background-color: transparent;
