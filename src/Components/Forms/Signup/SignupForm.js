@@ -133,7 +133,7 @@ function SignupForm() {
                             {mensagemErro && <p><BiMessageSquareError />{mensagemErro}</p>}
                         </div>
                         <div className={styles.buttonContainer}>
-                            <button className={styles.register} onClick={register}>Registar<RiVipDiamondLine /></button>
+                            <button className={styles.register} onClick={register}>Registrar<RiVipDiamondLine /></button>
                             <Link to="/"><button className={styles.back}>Voltar</button></Link>
                         </div>
                     </form>

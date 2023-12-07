@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 25c391df299f6fba99e96787f5e9c39e8c1d5bde
 /*Splash*/
 
 .intro {
@@ -21,11 +17,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
-<<<<<<< HEAD
-    display: flex;
-    align-items: center;
-=======
->>>>>>> 25c391df299f6fba99e96787f5e9c39e8c1d5bde
 }
 
 .intrologo{
